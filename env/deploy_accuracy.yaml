@@ -1,0 +1,16 @@
+version: 1.0
+
+model:
+  name: default_model_name
+  framework: tensorflow
+  inputs: ["input_1", "input_2"]
+  outputs: ["Identity"]
+quantization:
+  approach: post_training_dynamic_quant
+device: cpu
+tuning:
+  accuracy_criterion:
+          relative: 0.01
+  exit_policy:
+          timeout: 0
+          max_trials : 300
